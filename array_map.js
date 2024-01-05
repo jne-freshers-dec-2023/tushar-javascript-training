@@ -1,3 +1,8 @@
 let numbers = [1,2,3,4,5,6,7]
 
-let squareNumber = numbers.map()
+let squareNumber = numbers.map(function(number){
+
+    return number * number;
+})
+
+console.log(squareNumber)
