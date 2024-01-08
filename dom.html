@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body>
+    <h1>JS getElementsByTagName() Demo</h1>
+    <h2>First Heading</h2>
+    <h2>Second Heading</h2>
+    <h2>Thirds Heading</h2>
+    <p id="message">Paragraph</p>
+    <button id="btnCount">Count H2</button>
+
+
+
+    <script>
+        const p = document.getElementById('message');
+        console.log(p)
+    
+        let btn = document.getElementById('btnCount');
+        btn.addEventListener('click', () => {
+                let headings = document.getElementsByTagName('h2');
+                alert(`The number of H2 tags: ${headings.length}`);
+            });
+    </script>
+</body>
+
+</html>
