@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates in Javascript</title>
+</head>
+<body>
+    <script>
+        const currentDate = new Date();
+        document.write("Current Date and Time : ", currentDate, "<br>");
+
+
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1; // Months are zero-based (0 = January)
+        const day = currentDate.getDate();
+        const hours = currentDate.getHours();
+        const minutes = currentDate.getMinutes();
+        const seconds = currentDate.getSeconds();
+
+        document.write('Year:', year, "<br>");
+        document.write('Month:', month, "<br>");
+        document.write('Day:', day, "<br>");
+        document.write('Hours:', hours, "<br>");
+        document.write('Minutes:', minutes, "<br>");
+        document.write('Seconds:', seconds, "<br>");
+
+    </script>
+</body>
+</html>

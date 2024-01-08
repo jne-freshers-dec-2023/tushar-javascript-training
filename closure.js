@@ -12,6 +12,7 @@ function outerFunction()
     return insideFunction;
 }
 
+
 let closure = outerFunction();
 
 closure();
