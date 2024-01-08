@@ -1,3 +1,4 @@
+//Object in JS
 const person = {
 
     name : "Tushar",
@@ -9,6 +10,7 @@ console.log(person.name)
 console.log(person.age)
 console.log(person.role)
 
+//MAPS in JS
 const personMap = new Map();
 
 personMap.set('name', "Tushar")
