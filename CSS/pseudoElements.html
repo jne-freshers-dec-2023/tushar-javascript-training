@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Elements</title>
+    <style>
+        .quote::before {
+            content: '"';
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        .quote::after {
+            content: '"';
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        .paragraph::first-line {
+            font-weight: bold;
+        }
+
+        .paragraph::first-letter {
+            font-size: 2em;
+            color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p class="quote">This is a quoted text.</p>
+    <p class="paragraph">This is a sample paragraph. It has multiple lines and letters.</p>
+
+</body>
+</html>
