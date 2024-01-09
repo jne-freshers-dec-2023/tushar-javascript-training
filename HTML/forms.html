@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in HTML</title>
+</head>
+<body>
+    <form action="submit" target="_blank">
+        <small>Different Types of Input Tags</small>
+        <br>
+        <br>
+        <label for="input_name">Name</label>
+        <input type="text" required placeholder="Enter your name" maxlength="10">
+        <br>
+        <br>
+        <label for="button">Button</label>
+        <input type="button">
+        <br>
+        <label for="checkbox">checkbox</label>
+        <input type="checkbox">
+        <br>
+        <label for="color">Color</label>
+        <input type="color">
+        <br>
+        <label for="date">Date Picker</label>
+        <input type="date">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" placeholder="Enter your email" required>
+        <br>
+        <label for="file">File</label>
+        <input type="file">
+        <br>  
+        <label for="password">Password</label>
+        <input type="password">
+        <br>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender">
+        <br>
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender">
+        <br>
+        <label for="range">Range</label>
+        <input type="range">
+        <br>
+        <label for="search">Search</label>
+        <input type="search">
+        <br>
+        <label for="submit">Submit</label>
+        <input type="submit">
+
+        <hr>
+
+        
+        
+        <form action="submit" target="_blank" required>
+            <fieldset>
+                <legend>Sample of gender select</legend>
+    
+                <label for="gender">Choose a gender:</label>
+    
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <button onclick="Submit">Submit</button>
+    
+                
+            </fieldset>
+        </form>
+
+    </form>
+
+    
+</body>
+</html>
