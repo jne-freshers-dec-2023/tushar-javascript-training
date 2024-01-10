@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .block-element {
+      display: block;
+      background-color: lightblue;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .inline-element {
+      display: inline;
+      background-color: lightcoral;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .inline-block-element {
+      display: inline-block;
+      background-color: lightgreen;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .flex-container {
+      display: flex;
+      background-color: yellow;
+      padding: 10px;
+      margin-bottom: 10px;
+      justify-content: space-between;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background-color: lightpink;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>display Property Example</title>
+</head>
+<body>
+  <div class="block-element">Block Element</div>
+  <span class="inline-element">Inline Element</span>
+  <div class="inline-block-element">Inline-Block Element</div>
+  <div class="flex-container">
+    <div>Flex Item 1</div>
+    <div>Flex Item 2</div>
+    <div>Flex Item 3</div>
+  </div>
+  <div class="grid-container">
+    <div>Grid Item 1</div>
+    <div>Grid Item 2</div>
+    <div>Grid Item 3</div>
+    <div>Grid Item 4</div>
+    <div>Grid Item 5</div>
+    <div>Grid Item 6</div>
+  </div>
+</body>
+</html>
