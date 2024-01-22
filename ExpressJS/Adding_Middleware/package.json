@@ -2,10 +2,10 @@
   "name": "adding_middleware",
   "version": "1.0.0",
   "description": "",
-  "main": "middleware.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon middleware.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
+    "mongodb": "^6.3.0",
     "mysql2": "^3.7.1",
     "sequelize": "^6.35.2"
   }

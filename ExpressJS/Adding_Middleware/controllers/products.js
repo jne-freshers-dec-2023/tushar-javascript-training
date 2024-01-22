@@ -11,29 +11,31 @@ exports.getAddProduct = (req, res, next) => {
 
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
-  const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  Product.create({
-    title: title,
-    price: price,
-    imageUrl: imageUrl,
-    description: description
-  }).then(result =>{
-    console.log(result);
-  }).catch(err =>{
-    console.log(err);
-  });
-};
-
-exports.getProducts = (req, res, next) => {
-  Product.fetchAll()
-    .then(([result]) => {
-      console.log(result);
+  const imageUrl = req.body.imageUrl;
+  const product = new Product(title, price, description, imageUrl);
+  product
+    .save()
+    .then((result) => {
+      // console.log(result);
+      console.log("Created Product!");
+      res.redirect("/admin/add-product");
     })
     .catch((err) => {
       console.log(err);
     });
+};
+
+exports.getProducts = (req, res, next) => {
+  Product.findAll()
+    .then((products) => {
+      console.log(products);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   console.log("In another middleware");
   res.sendFile(path.join(rootDir, "views", "shop.html"));
 };
