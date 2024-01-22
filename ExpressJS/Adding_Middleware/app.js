@@ -3,14 +3,15 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const errorController = require("./controllers/error");
-const mongoConnect = require("./util/database").mongoConnect;
+// const mongoConnect = require("./util/database").mongoConnect;
 
 const app = express();
 
 const adminRoutes = require("./Routes/admin");
-// const shopRoutes = require("./Routes/shop");
+const shopRoutes = require("./Routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -20,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/admin", adminRoutes);
-// app.use(shopRoutes);
+app.use(shopRoutes);
 
 app.use(errorController.get404);
 
@@ -38,6 +39,19 @@ const PORT = 3000;
 //     console.log(err);
 //   });
 
-mongoConnect(() => {
-  app.listen(`${PORT}`);
-});
+// mongoConnect(() => {
+//   app.listen(`${PORT}`);
+// });
+
+mongoose
+  .connect(
+    "mongodb+srv://tushardeomare:TndTndTnd18121278@cluster0.megkdvt.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then((result) => {
+    // console.log(result);
+    console.log("Connected!");
+    app.listen(`${PORT}`);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
