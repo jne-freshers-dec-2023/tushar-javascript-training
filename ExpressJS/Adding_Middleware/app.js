@@ -1,5 +1,7 @@
 const http = require("http");
 const path = require("path");
+const env = require('dotenv').config();
+
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -43,10 +45,10 @@ const PORT = 3000;
 //   app.listen(`${PORT}`);
 // });
 
-mongoose
-  .connect(
-    "mongodb+srv://tushardeomare:TndTndTnd18121278@cluster0.megkdvt.mongodb.net/?retryWrites=true&w=majority"
-  )
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then((result) => {
     // console.log(result);
     console.log("Connected!");
