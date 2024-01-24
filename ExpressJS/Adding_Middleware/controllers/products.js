@@ -24,9 +24,10 @@ exports.postAddProduct = (req, res, next) => {
   product
     .save()
     .then((result) => {
-      // console.log(result);
+      console.log(result);
       console.log("Created Product!");
       res.redirect("/admin/add-product");
+      // res.sendFile(path.join(__dirname, "../", "views", "add-product.html"));
     })
     .catch((err) => {
       console.log(err);
@@ -34,6 +35,7 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
+  console.log("Get All Products!")
   Product.find()
     .then((products) => {
       console.log(products);
