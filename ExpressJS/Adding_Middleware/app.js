@@ -20,6 +20,7 @@ const store = new MongoDBStore({
 const adminRoutes = require("./Routes/admin");
 const shopRoutes = require("./Routes/shop");
 const loginRoutes = require("./Routes/login");
+const signupRoutes = require('./Routes/signup')
 
 const logoutRoutes = require("./Routes/logout");
 
@@ -46,6 +47,7 @@ app.use(
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 app.use(loginRoutes);
+app.use(signupRoutes);
 app.use(logoutRoutes);
 
 app.use(errorController.get404);
