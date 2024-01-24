@@ -7,14 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add Product</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
     <header class="main-header">
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
-                <li class="main-header__item"><a class="active" href="/">Shop</a></li>
-                <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+                <li class="main-header__item" id="home"><a class="active" href="/shop">Shop</a></li>
+                <li class="main-header__item" id="add_product"><a href="/admin/add-product">Add Product</a></li>
+                <li class="main-header__item">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    Logout</a></li>
+                <!-- <li class="main-header__item" id="login"><a href="/">Login</a> </li> -->
+                <!-- <a href="/login">Login</a> -->
             </ul>
         </nav>
     </header>
@@ -23,6 +49,25 @@
         <h1>My Products</h1>
         <p>List of all the products...</p>
     </main>
+    <!-- <script>
+        const dd= document.getElementById("login")
+        const isLogin = sessionStorage.getItem("")
+        const newEle=document.createElement("a")
+        if(isLogin){
+            console.log("In log");
+            newEle.href="/login";
+            newEle.innerText="Login"
+            const childEle=newEle.append(newEle)
+        }else{
+            console.log("logout");
+        }
+    </script> -->
+
+    <script>
+        function handleClick(){
+            console.log('Logout');
+        }
+    </script>
 </body>
 
 </html>
