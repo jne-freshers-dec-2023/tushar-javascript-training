@@ -9,7 +9,6 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
 const errorController = require("./controllers/error");
-// const mongoConnect = require("./util/database").mongoConnect;
 
 const app = express();
 const store = new MongoDBStore({
@@ -20,7 +19,7 @@ const store = new MongoDBStore({
 const adminRoutes = require("./Routes/admin");
 const shopRoutes = require("./Routes/shop");
 const loginRoutes = require("./Routes/login");
-const signupRoutes = require('./Routes/signup')
+const signupRoutes = require("./Routes/signup");
 
 const logoutRoutes = require("./Routes/logout");
 
@@ -53,22 +52,6 @@ app.use(logoutRoutes);
 app.use(errorController.get404);
 
 const PORT = 3000;
-
-// sequelize
-//   .sync({ force: true })
-//   .then((result) => {
-//     // console.log(result);
-//     app.listen(PORT, () => {
-//       console.log(`Server is listening on http://localhost:${PORT}`);
-//     });
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-// mongoConnect(() => {
-//   app.listen(`${PORT}`);
-// });
 
 mongoose
   .connect(process.env.MONGODB_URI)

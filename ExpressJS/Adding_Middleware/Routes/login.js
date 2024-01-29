@@ -11,7 +11,6 @@ router.get("/", loginController.getLoginPage);
 
 router.post("/", loginController.postLogin);
 
-router.get('/', loginController.getLogins)
-
+router.get("/", loginController.getLogins);
 
 module.exports = router;

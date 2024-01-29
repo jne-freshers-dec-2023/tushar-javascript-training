@@ -3,23 +3,32 @@ const bcrypt = require("bcryptjs");
 const path = require("path");
 const rootDir = require("../util/path");
 
-// const SignUp = require("../models/signup");
 const User = require("../models/user");
+const { error } = require("console");
 
 exports.getSignUpPage = (req, res, next) => {
-  console.log("In the middleware");
+  console.log("In the Signup Page");
   res.sendFile(path.join(__dirname, "../", "views", "signup.html"));
 };
 
 exports.postSignUp = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
+  const confirmPassword = req.body.confirm_password;
+
+  if (password !== confirmPassword) {
+    console.log("Passwords do not match");
+    // throw new Error ('Passwords do not match')
+    return res.redirect("/signup");
+  }
+
 
   User.findOne({ email: email })
     .then((userDoc) => {
       if (userDoc) {
-        return res.redirect("/signup");
+        console.log("User already exists please login");
+        // throw new Error ("User already exists please login");
+        return res.redirect("/");
       }
 
       return bcrypt
@@ -36,36 +45,6 @@ exports.postSignUp = (req, res, next) => {
         });
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
-
-  //   const signup = new SignUp({
-  //     email: email,
-  //     password: password,
-  //     confirmPassword: confirmPassword,
-  //   });
-
-  //   signup
-  //     .save()
-  //     .then((result) => {
-  //       console.log(result);
-  //       console.log("User Signed Up!");
-  //       res.redirect("/");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
 };
-
-// exports.getLogins = (req, res, next) =>{
-//     Login.find()
-//     .then((logins)=>{
-//         console.log(logins)
-//     })
-//     .catch((err)=>{
-//         console.log(err)
-//     })
-
-//   console.log("In another middleware");
-//   res.sendFile(path.join(rootDir, "views", "shop.html"));
-// }
