@@ -1,49 +1,66 @@
+const bcrypt = require("bcryptjs");
+
 const path = require("path");
 const rootDir = require("../util/path");
 
-const session = require("express-session");
-
 const Login = require("../models/login");
-const db = require("../util/database");
+const User = require("../models/user");
 
 exports.getLoginPage = (req, res, next) => {
-  console.log("In the middleware");
+  console.log("In the Login Page");
   res.sendFile(path.join(__dirname, "../", "views", "login.html"));
 };
 
 exports.postLogin = (req, res, next) => {
-  req.session.isLoggedIn = true;
   const email = req.body.email;
   const password = req.body.password;
 
-  const login = new Login({
-    email: email,
-    password: password,
-  });
+  User.findOne({ email: email })
+    .then((user) => {
+      if (!user) {
+        console.log("Invalid email or password");
+        // throw new Error ("Invalid email or password");
+        return res.redirect("/");
+      }
 
-  login
-    .save()
-    .then((result) => {
-      console.log(result);
-      console.log("User Logged In!");
-      // res.sendFile(path.join(rootDir, "views", "add-prduct.html"));      
-      // res.sendFile(path.join(rootDir, "views", "shop.html"));
-      res.redirect("/shop"); 
+      bcrypt
+        .compare(password, user.password)
+        .then((doMatch) => {
+          if (doMatch) {
+            req.session.isLoggedIn = true;
+            req.session.user = JSON.stringify(user);
+            return req.session.save((err) => {
+              console.log(err);
+              console.log("User Logged In Successfully!");
+              return res.redirect("/shop");
+            });
+          } else {
+            console.log("Invalid email or password.");
+            // throw new Error ("Invalid email or password");
+            return res.redirect("/");
+          }
+        })
+        .catch((err) => {
+          console.log("Invalid email or password.");
+          console.log(err);
+          res.redirect("/");
+        });
+    })
+    .catch((err) => {
+      console.log("Invalid email or password");
+      // throw new Error(err)
+    });
+};
+
+exports.getLogins = (req, res, next) => {
+  Login.find()
+    .then((logins) => {
+      console.log(logins);
     })
     .catch((err) => {
       console.log(err);
     });
-};
-
-exports.getLogins = (req, res, next) =>{
-    Login.find()
-    .then((logins)=>{
-        console.log(logins)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
 
   console.log("In another middleware");
   res.sendFile(path.join(rootDir, "views", "shop.html"));
-}
+};

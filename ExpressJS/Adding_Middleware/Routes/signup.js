@@ -3,11 +3,12 @@ const path = require("path");
 const express = require("express");
 
 const rootDir = require("../util/path");
-const logoutController = require("../controllers/logout");
-const isAuth = require("../middleware/isAuth");
+const signupController = require("../controllers/signup");
 
 const router = express.Router();
 
-router.get("/newLogout", isAuth, logoutController.postLogout);
+router.get("/signup", signupController.getSignUpPage);
+
+router.post("/signup", signupController.postSignUp);
 
 module.exports = router;

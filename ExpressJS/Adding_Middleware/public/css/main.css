@@ -43,3 +43,22 @@ main {
 .main-header__item a.active {
     color: #3e00a1;
 }
+
+.pagination{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.pagination a{
+    text-decoration: none;
+    color: #dbc441;
+    border: 1px solid #dbc441;
+    padding: 1rem;
+    margin: 0 1rem;
+}
+
+.pagination a:hover,
+.pagination a:active{
+    background: #dbc441;
+    color: white;
+}

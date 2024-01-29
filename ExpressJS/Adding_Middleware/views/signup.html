@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Login</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/product.css" />
   </head>
@@ -20,7 +20,7 @@
     </header>
 
     <main>
-      <form class="login-form" action="/" method="POST">
+      <form class="login-form" action="/signup" method="POST">
         <div class="form-control">
           <label for="email">Email</label>
           <input type="email" name="email" id="email" required />
@@ -29,8 +29,16 @@
           <label for="password">Password</label>
           <input type="password" name="password" id="password" />
         </div>
+        <div class="form-control">
+          <label for="confirm_password">Confirm Password</label>
+          <input
+            type="password"
+            name="confirm_password"
+            id="confirm_password"
+          />
+        </div>
 
-        <button type="submit">Login</button>
+        <button type="submit">SignUp</button>
       </form>
     </main>
   </body>
